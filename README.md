@@ -11,8 +11,15 @@ can travel in.
 Nov. 23:
     Lalolagi is a top-down rpg with a focus mostly towards world generation. The thought 
 towards this is having components of inventory, enemies, and traveling around the map. 
-The map is initially planned to be created through perlin noise. Once the generation is 
-working, the focus will then be to add a character you can move, and etc. 
+The main plan for the project additions:
+1: prepare world map creator
+2: controllable player
+3: spanwable enemies
+4: inventory and potential merchant to sell/buy from
     Most components from the brick and batter project were put into here as well. I think
 I can use most of those things after modifying a chunk of what the code was originally
 there for.
+
+
+Github:
+https://github.com/SilverKnight317/Lalolagi.git
