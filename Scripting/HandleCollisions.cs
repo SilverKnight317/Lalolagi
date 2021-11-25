@@ -22,8 +22,9 @@ namespace Lalolagi.Scripting
         }
 
         public override void Execute(Dictionary<string, List<Actor>> cast)
-        {
-            List<Actor> balls = cast["balls"]; /*[0];*/ // There is only one
+        { 
+            /*
+            List<Actor> balls = cast["balls"]; // There is only one
             List<Actor> bricks = cast["bricks"];
             List<Actor> paddles = cast["paddle"]; // Get all the artifacts
             List<Actor> removeBrick = new List<Actor>();
@@ -55,6 +56,7 @@ namespace Lalolagi.Scripting
                     // _scoreBoard.AddScoreBoardPoint();
                 }
             }
+            */
         }
 
     }

@@ -6,7 +6,8 @@ namespace Lalolagi
     {
         private int x;
         private int y;
-        private readonly int[] permutation = { 210, 82, 166, 250, 43,
+        private readonly int[] permutation = 
+            { 210, 82, 166, 250, 43,
             81, 233, 28, 41, 177, 180, 12, 0, 100, 39, 230, 60, 132, 8,
             134, 127, 71, 54, 124, 62, 108, 190, 119, 222, 219, 133, 217,
             55, 197, 207, 227, 137, 115, 221, 162, 235, 67, 206, 128, 131,
@@ -47,7 +48,7 @@ namespace Lalolagi
         {
 
         }
-        private void Perlin_Noise()
+        public void Perlin_Noise()
         {
 
         }
