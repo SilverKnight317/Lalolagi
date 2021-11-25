@@ -21,12 +21,12 @@ namespace Lalolagi
                 if (ball.GetRightEdge() >= Constants.MAX_X || ball.GetLeftEdge() <= 0)
                 {
                     ball.ChangeVelocityX();
-                    _audioService.PlaySound(Constants.SOUND_BOUNCE);
+                    // _audioService.PlaySound(Constants.SOUND_BOUNCE);
                 }
                 if (ball.GetBottomEdge() >= Constants.MAX_Y || ball.GetTopEdge() <= 0)
                 {
                     ball.ChangeVelocityY();
-                    _audioService.PlaySound(Constants.SOUND_BOUNCE);
+                    // _audioService.PlaySound(Constants.SOUND_BOUNCE);
                 }
             }
         }

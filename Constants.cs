@@ -14,14 +14,12 @@ namespace Lalolagi
         public const int DEFAULT_SQUARE_SIZE = 20;
         public const int DEFAULT_FONT_SIZE = 20;
         public const int DEFAULT_TEXT_OFFSET = 4;
-
-        public const string IMAGE_BRICK = "./Assets/brick-3.png";
-        public const string IMAGE_PADDLE = "./Assets/bat.png";
-        public const string IMAGE_BALL = "./Assets/ball.png";
-
-        public const string SOUND_START = "./Assets/start.wav";
-        public const string SOUND_BOUNCE = "./Assets/boing.wav";
-        public const string SOUND_OVER = "./Assets/over.wav";
+        public const string IMAGE_LANDTILE_1 = "./Assets/LandTile_1.png";
+        public const string IMAGE_MTNTILE_1 = "./Assets/MtnTile_1.png";
+        public const string IMAGE_MtnTile_2 = "./Assets/MtnTile_2.png";
+        public const string IMAGE_OceanTile_1 = "./Assets/OceanTile_1.png";
+        public const int TILE_HEIGHT = 32;
+        public const int TILE_WIDTH = 32;
 
         public const int BALL_X = MAX_X / 2;
         public const int BALL_Y = MAX_Y - 125;
