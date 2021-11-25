@@ -19,26 +19,29 @@ Must Haves:
 - Controllable player
 
 Nice To Haves:
-    - Spawnable Enemies
-    - Inventory
-    - Merchant
-        Most components from the brick and batter project were put into here as well. I think
-    I can use most of those things after modifying a chunk of what the code was originally there for. The Overall list is:
-            - Actor
-            - Point
-            - ScoreBoard
-            - ControlActorsAction
-            - DrawActorsAction
-            - HandleOffScreenCollision
-            - MoveAcotrsAction
-            - AudioService
-            - InputService
-            - OutputService
-            - PhysicsService
-            - Action
-            - Director
-            - Noise
-            - Program
+- Spawnable Enemies
+- Inventory
+- Merchant
+
+Most components from the brick and batter project were put into here as well. I think
+I can use most of those things after modifying a chunk of what the code was originally there for. 
+
+The Overall list is:
+- Actor
+- Point
+- ScoreBoard
+- ControlActorsAction
+- DrawActorsAction
+- HandleOffScreenCollision
+- MoveAcotrsAction
+- AudioService
+- InputService
+- OutputService
+- PhysicsService
+- Action
+- Director
+- Noise
+- Program
 
 
 Github:
