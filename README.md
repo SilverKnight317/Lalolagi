@@ -12,13 +12,31 @@ Nov. 23:
     Lalolagi is a top-down rpg with a focus mostly towards world generation. The thought 
 towards this is having components of inventory, enemies, and traveling around the map. 
 The main plan for the project additions:
-1: prepare world map creator
-2: controllable player
-3: spanwable enemies
-4: inventory and potential merchant to sell/buy from
+Must Haves:
+- World Map generator
+- Controllable player
+Nice To Haves:
+- Spawnable Enemies
+- Inventory
+- Merchant
     Most components from the brick and batter project were put into here as well. I think
 I can use most of those things after modifying a chunk of what the code was originally
-there for.
+there for. The Overall list is:
+- Actor
+- Point
+- ScoreBoard
+- ControlActorsAction
+- DrawActorsAction
+- HandleOffScreenCollision
+- MoveAcotrsAction
+- AudioService
+- InputService
+- OutputService
+- PhysicsService
+- Action
+- Director
+- Noise
+- Program
 
 
 Github:
