@@ -56,6 +56,10 @@ namespace Lalolagi
         {
 
         }
+        private double Linear_Interpolation(double a, double b, double c)
+        {
+            return a + x * (b - a);
+        }
         private double Dot_Product(double a, double b, double c)
         {
             return (Math.Sqrt(a * Math.Exp(2) + b * Math.Exp(2) + c * Math.Exp(2)));
