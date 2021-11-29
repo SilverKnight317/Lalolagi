@@ -80,14 +80,14 @@ namespace Lalolagi
 
 
             // Start up the game
-            outputService.OpenWindow(Constants.MAX_X, Constants.MAX_Y, "Batter", Constants.FRAME_RATE);
+            outputService.OpenWindow(Constants.MAX_X, Constants.MAX_Y, "Lalolagi", Constants.FRAME_RATE);
             audioService.StartAudio();
-            audioService.PlaySound(Constants.SOUND_START);
+            // audioService.PlaySound(Constants.SOUND_START);
 
             Director theDirector = new Director(cast, script);
             theDirector.Direct();
 
-            audioService.StopAudio();
+            // audioService.StopAudio();
             
         }
     }
