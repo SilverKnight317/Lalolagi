@@ -4,8 +4,9 @@ namespace Lalolagi
 {
     public class Noise
     {
-        private int x;
-        private int y;
+        private double x;
+        private double y;
+        // private int gradients[];
         private readonly int[] permutation = 
             { 210, 82, 166, 250, 43,
             81, 233, 28, 41, 177, 180, 12, 0, 100, 39, 230, 60, 132, 8,
@@ -44,29 +45,51 @@ namespace Lalolagi
             163, 56, 242, 91, 111, 25, 65, 236, 38, 195, 186, 88, 175, 95,
             205, 20, 136, 74, 141, 3, 150, 179, 52, 129, 15, 225, 10, 11,
             224, 246, 143, 83, 26, 109, 198, 33, 96, 90, 4, 49, 199, 226, 1};
+
+            /// <summary>
+            /// The Noise function is geared for "Pseudo-Random" for a quite natural-esque form of generation.
+            /// </summary>
         public Noise()
         {
+            int xx = Convert.ToInt32(x) & 255;
+            int yy = Convert.ToInt32(y) & 255;
+
+            double xdiff = Math.Floor(x);
 
         }
-        public void Perlin_Noise()
+        public void Perlin_Noise(int px, int py, int z)
         {
-
+            // This Perlin Noise would be based on a 2D scale
+            x = (px / z) * 10;
+            y = (py / z) * 10;
         }
-        private void Gradient_Vector()
+        private int Gradient_Vector(double input)
         {
-
+            
         }
         private double Linear_Interpolation(double a, double b, double c)
         {
+            // Linear Interpolation is basically a "Connect the Dots" type of function
             return a + x * (b - a);
         }
         private double Dot_Product(double a, double b, double c)
         {
+            // The Dot Product is a scalar value
             return (Math.Sqrt(a * Math.Exp(2) + b * Math.Exp(2) + c * Math.Exp(2)));
         }
         private double Fade_Function(double input)
         {
+            // The Fade function eases the differentiating values between the current calculated tile with the others around it. 
+            // You don't want to have neightboring tiles with a difference of something like 0 to 100!
             return (6 * (input * Math.Exp(6)) - 15 * (input * Math.Exp(4)) + 10 * (input * Math.Exp(3)));
+        }
+        public void Simplex(double xin, double yin)
+        {
+            double n0, n1, n2;
+            double f2 = (0.5)*(Math.Sqrt(3.0)-1.0);
+            double s = (xin + yin)*f2;
+            int i = Math.Floor(xin + s);
+            int j = Math.Floor(yin + s);
         }
     }
 }
