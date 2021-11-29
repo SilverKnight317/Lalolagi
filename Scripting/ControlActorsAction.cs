@@ -21,10 +21,10 @@ namespace Lalolagi.Scripting
         {
             Point direction = _inputService.GetDirection();
             
-            Actor paddle = cast["paddle"][0];
+            Actor player = cast["player"][0];
 
-            Point velocity = direction.Scale(Constants.PADDLE_SPEED);
-            paddle.SetVelocity(velocity);
+            Point velocity = direction.Scale(5);
+            player.SetVelocity(velocity);
         }
         
     }

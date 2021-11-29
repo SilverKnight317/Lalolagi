@@ -6,7 +6,7 @@ namespace Lalolagi
     {
         private double x;
         private double y;
-        // private int gradients[];
+        private int gradients;
         private readonly int[] permutation = 
             { 210, 82, 166, 250, 43,
             81, 233, 28, 41, 177, 180, 12, 0, 100, 39, 230, 60, 132, 8,

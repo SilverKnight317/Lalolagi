@@ -139,7 +139,6 @@ namespace Lalolagi.Casting
             int newX = (x + dx) % Constants.MAX_X;
             int newY = (y + dy) % Constants.MAX_Y;
 
-            
             if (newX < 0)
             {
                 newX = Constants.MAX_X;
