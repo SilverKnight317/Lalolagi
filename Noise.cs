@@ -63,7 +63,7 @@ namespace Lalolagi
             x = (px / z) * 10;
             y = (py / z) * 10;
         }
-        private int Gradient_Vector(double input)
+        private void Gradient_Vector(double input)
         {
             
         }
@@ -88,8 +88,8 @@ namespace Lalolagi
             double n0, n1, n2;
             double f2 = (0.5)*(Math.Sqrt(3.0)-1.0);
             double s = (xin + yin)*f2;
-            int i = Math.Floor(xin + s);
-            int j = Math.Floor(yin + s);
+            int i = Convert.ToInt32(Math.Floor(xin + s));
+            int j = Convert.ToInt32(Math.Floor(yin + s));
         }
     }
 }
