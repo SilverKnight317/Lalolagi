@@ -6,7 +6,7 @@ namespace Lalolagi
     {
         private double x;
         private double y;
-        private int gradients;
+        
         private readonly int[] permutation = 
             { 210, 82, 166, 250, 43,
             81, 233, 28, 41, 177, 180, 12, 0, 100, 39, 230, 60, 132, 8,
@@ -51,11 +51,7 @@ namespace Lalolagi
             /// </summary>
         public Noise()
         {
-            int xx = Convert.ToInt32(x) & 255;
-            int yy = Convert.ToInt32(y) & 255;
-
-            double xdiff = Math.Floor(x);
-
+            
         }
         public void Perlin_Noise(int px, int py, int z)
         {
@@ -63,33 +59,126 @@ namespace Lalolagi
             x = (px / z) * 10;
             y = (py / z) * 10;
         }
-        private void Gradient_Vector(double input)
-        {
-            
-        }
         private double Linear_Interpolation(double a, double b, double c)
         {
             // Linear Interpolation is basically a "Connect the Dots" type of function
             return a + x * (b - a);
         }
-        private double Dot_Product(double a, double b, double c)
-        {
-            // The Dot Product is a scalar value
-            return (Math.Sqrt(a * Math.Exp(2) + b * Math.Exp(2) + c * Math.Exp(2)));
-        }
+        
         private double Fade_Function(double input)
         {
             // The Fade function eases the differentiating values between the current calculated tile with the others around it. 
             // You don't want to have neightboring tiles with a difference of something like 0 to 100!
             return (6 * (input * Math.Exp(6)) - 15 * (input * Math.Exp(4)) + 10 * (input * Math.Exp(3)));
         }
-        public void Simplex(double xin, double yin)
+
+        private int[] Gradient_Vector(int input)
         {
+            int[] gradie = {0, 0};
+            if (input == 0)
+            {
+                gradie[0] = 1;
+                gradie[1] = 1;
+            }
+            if (input == 1)
+            {
+                gradie[0] = 1;
+                gradie[1] = -1;
+            }
+            if (input == 2)
+            {
+                gradie[0] = -1;
+                gradie[1] = -1;
+            }
+            if (input == 3)
+            {
+                gradie[0] = -1;
+                gradie[1] = 1;
+            }
+            return gradie;
+        }
+        private double Dot_Product(int[] a, double xx, double yy)
+        {
+            // The Dot Product is a scalar value
+            return (Math.Sqrt(a[0] * xx + a[1] * yy));
+            // Remember Andy: Dot Product is not like getting magnitude of a vector!
+            // return (Math.Sqrt(a[0] * Math.Exp(2) + b * Math.Exp(2) + c * Math.Exp(2)));
+        }
+
+        /// <Summary>
+        /// Simplex noise uses a slightly differernt form of caluculation than Perlin Noise.
+        /// It uses cells, skews them one way to determine the location, unskews them afterwards, and then calculates with gradients.
+        /// <summary>
+        public int Simplex(double xin, double yin)
+        {
+            int i1, j1;
             double n0, n1, n2;
             double f2 = (0.5)*(Math.Sqrt(3.0)-1.0);
             double s = (xin + yin)*f2;
             int i = Convert.ToInt32(Math.Floor(xin + s));
             int j = Convert.ToInt32(Math.Floor(yin + s));
+
+            double g2 = (3.0 - Math.Sqrt(3.0)) / 6.0;
+            double t = (i + j) * g2;
+            double x0 = i - t;
+            double y0 = j - t;
+            double xo = xin - x0;
+            double yo = yin - y0;
+
+            if(xo > yo)
+            {
+                i1 = 1;
+                j1 = 0;
+            }
+            else 
+            {
+                i1 = 0;
+                j1 = 1;
+            }
+
+            // this is to offset for the skewer
+            double x1 = x0 - i1 + g2;
+            double y1 = y0 - j1 + g2;
+            double x2 = x0 - 1.0 + 2.0 * g2;
+            double y2 = y0 - 1.0 + 2.0 * g2;
+
+            int ii = i & 255;
+            int jj = j & 255;
+
+            int grad_i_0 = permutation[ii +      permutation[jj     ]] % 4;
+            int grad_i_1 = permutation[ii + i1 + permutation[jj + j1]] % 4;
+            int grad_i_2 = permutation[ii +  1 + permutation[jj + 1 ]] % 4;
+
+            double t0 = 0.5 - xo * xo - yo * yo;
+            if (t0 < 0 )
+            {
+                n0 = 0.0;
+            }
+            else
+            {
+                n0 = t0 * t0 * Dot_Product(Gradient_Vector(grad_i_0), xo, yo);
+            }
+
+            double t1 = 0.5 - x1 * x1 - y1 * y1;
+            if (t1 < 0 )
+            {
+                n1 = 0.0;
+            }
+            else
+            {
+                n1 = t1 * t1 * Dot_Product(Gradient_Vector(grad_i_1), x1, y1);
+            }
+
+            double t2 = 0.5 - x2 * x2 - y2 * y2;
+            if (t2 < 0)
+            {
+                n2 = 0.0;
+            }
+            else 
+            {
+                n2 = t2 * t2 * Dot_Product(Gradient_Vector(grad_i_2), x2, y2);
+            }
+            return Convert.ToInt32(n0 + n1 + n2);
         }
     }
 }
