@@ -43,10 +43,37 @@ namespace Lalolagi
             cast["scoreBoard"] = new List<Actor>();
             cast["scoreBoard"].Add(scoreBoard);
 
-            // The paddle
-            cast["player"] = new List<Actor>();
 
-            // TODO: Add your paddle here
+            // Creating map
+            Noise noise = new Noise();
+            cast["tiles"] = new List<Actor>();
+            for(int x = 0; x <= Constants.MAX_X; x += Constants.TILE_WIDTH)
+            {
+                for(int y = 0; y <= Constants.MAX_Y; y += Constants.TILE_HEIGHT)
+                {
+
+                    Tile t = new Tile(x / 32, y /32, noise);
+                    t.SetPosition(new Point(x, y));
+                    cast["tiles"].Add(t);
+                }
+            }
+
+            // for(int x = 0; x <= Constants.MAX_X; x += 2)
+            // {
+            //     for(int y = 0; y <= Constants.MAX_Y; y += 2)
+            //     {
+            //         Console.WriteLine($"{x / 2}, {y / 2}");
+            //         Tile t = new Tile(x / 2, y / 2, noise);
+            //         t.SetPosition(new Point(x, y));
+            //         cast["tiles"].Add(t);
+            //     }
+            // }
+
+
+
+
+            // The player, created and added to cast
+            cast["player"] = new List<Actor>();
             Player player = new Player();
             cast["player"].Add(player);
 

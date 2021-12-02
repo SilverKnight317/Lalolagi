@@ -4,8 +4,9 @@ namespace Lalolagi
 {
     public class Noise
     {
-        private double x;
-        private double y;
+        private int x;
+        private int y;
+        private int z;
         
         private readonly int[] permutation = 
             { 210, 82, 166, 250, 43,
@@ -53,11 +54,46 @@ namespace Lalolagi
         {
             
         }
-        public void Perlin_Noise(int px, int py, int z)
+        public int Perlin_Noise(int px, int py, int pz)
         {
             // This Perlin Noise would be based on a 2D scale
-            x = (px / z) * 10;
-            y = (py / z) * 10;
+            x = px & 255;
+            y = py & 255;
+            z = pz & 255;
+
+            // x = Convert.ToInt32(px) % 255;
+            // y = Convert.ToInt32(py) % 255;
+            // z = Convert.ToInt32(pz) % 255;
+
+            // double nx = x - Math.Floor(x);
+            // double ny = y - Math.Floor(y);
+            // double nz = z - Math.Floor(z);
+
+            double fx = Fade_Function(x);
+            double fy = Fade_Function(y);
+            double fz = Fade_Function(z);
+
+            int aaa = permutation[permutation[permutation[x    ] +  y     ] +  z     ];
+            int aab = permutation[permutation[permutation[x    ] + (y + 1)] +  z     ];
+            int aba = permutation[permutation[permutation[x    ] +  y     ] + (z + 1)];
+            int abb = permutation[permutation[permutation[x    ] + (y + 1)] + (z + 1)];
+            int baa = permutation[permutation[permutation[x + 1] + (y    )] + (z    )];
+            int bab = permutation[permutation[permutation[x + 1] + (y + 1)] + (z    )];
+            int bba = permutation[permutation[permutation[x + 1] + (y    )] + (z + 1)];
+            int bbb = permutation[permutation[permutation[x + 1] + (y + 1)] + (z + 1)];
+
+            double x_1 = Linear_Interpolation(Second_Dot_Product(aaa, x, y), Second_Dot_Product(aab, x - 1, y), fx);
+            double x_2 = Linear_Interpolation(Second_Dot_Product(aba, x, y), Second_Dot_Product(abb, x - 1, y), fx);
+            
+            double y_1 = Linear_Interpolation(x_1, x_2, fy);
+
+            x_1 = Linear_Interpolation(Second_Dot_Product(baa, x, y), Second_Dot_Product(bab, x - 1, y), fx);
+            x_2 = Linear_Interpolation(Second_Dot_Product(bba, x, y), Second_Dot_Product(bbb, x - 1, y), fx);
+
+            double y_2 = Linear_Interpolation(x_1, x_2, fy);
+
+            int output = Convert.ToInt32(((Linear_Interpolation(y_1, y_2, fz) + 1) / 2) % 2);
+            return output;
         }
         private double Linear_Interpolation(double a, double b, double c)
         {
@@ -74,27 +110,80 @@ namespace Lalolagi
 
         private int[] Gradient_Vector(int input)
         {
-            int[] gradie = {0, 0};
+            int[] gradie = {0, 0, 0};
             if (input == 0)
             {
                 gradie[0] = 1;
                 gradie[1] = 1;
+                gradie[2] = 0;
             }
             if (input == 1)
             {
-                gradie[0] = 1;
-                gradie[1] = -1;
+                gradie[0] = -1;
+                gradie[1] = 1;
+                gradie[2] = 0;
             }
             if (input == 2)
             {
-                gradie[0] = -1;
+                gradie[0] = 1;
                 gradie[1] = -1;
+                gradie[2] = 0;
             }
             if (input == 3)
             {
                 gradie[0] = -1;
-                gradie[1] = 1;
+                gradie[1] = -1;
+                gradie[2] = 0;
             }
+            if (input == 4)
+            {
+                gradie[0] = 1;
+                gradie[1] = 0;
+                gradie[2] = 1;
+            }
+            if (input == 5)
+            {
+                gradie[0] = -1;
+                gradie[1] = 0;
+                gradie[2] = 1;
+            }
+            if (input == 6)
+            {
+                gradie[0] = 1;
+                gradie[1] = 0;
+                gradie[2] = -1;
+            }
+            if (input == 7)
+            {
+                gradie[0] = -1;
+                gradie[1] = 0;
+                gradie[2] = -1;
+            }
+            if (input == 8)
+            {
+                gradie[0] = 0;
+                gradie[1] = 1;
+                gradie[2] = 1;
+            }
+            if (input == 9)
+            {
+                gradie[0] = 0;
+                gradie[1] = -1;
+                gradie[2] = 1;
+            }
+            if (input == 10)
+            {
+                gradie[0] = 0;
+                gradie[1] = 1;
+                gradie[2] = -1;
+            }
+            if (input == 11)
+            {
+                gradie[0] = 0;
+                gradie[1] = -1;
+                gradie[2] = -1;
+            }
+
             return gradie;
         }
         private double Dot_Product(int[] a, double xx, double yy)
@@ -104,12 +193,16 @@ namespace Lalolagi
             // Remember Andy: Dot Product is not like getting magnitude of a vector!
             // return (Math.Sqrt(a[0] * Math.Exp(2) + b * Math.Exp(2) + c * Math.Exp(2)));
         }
+        private double Second_Dot_Product(int a, int i, int j)
+        {
+            return ((a * i) + (a * j));
+        }
 
         /// <Summary>
         /// Simplex noise uses a slightly differernt form of caluculation than Perlin Noise.
         /// It uses cells, skews them one way to determine the location, unskews them afterwards, and then calculates with gradients.
         /// <summary>
-        public int Simplex(double xin, double yin)
+        public void Simplex(double xin, double yin)
         {
             int i1, j1;
             double n0, n1, n2;
@@ -178,7 +271,20 @@ namespace Lalolagi
             {
                 n2 = t2 * t2 * Dot_Product(Gradient_Vector(grad_i_2), x2, y2);
             }
-            return Convert.ToInt32(n0 + n1 + n2);
+
+            double output_fix = n0 + n1 + n2;
+            if (output_fix < 0)
+            {
+                output_fix = 0;
+            }
+            // int output_final = Convert.ToInt32(Math.Floor(output_fix));
+
+            // double output_value = (n0 + n1 + n2) * 100;
+            // int output_value = Convert.ToInt32(n0 + n1 + n2);
+            // return Convert.ToInt32(n0 + n1 + n2);
+            Console.WriteLine($"({xin}, {yin}): {output_fix}");
+            // Console.WriteLine($"n1 coordinates: ({xin}, {yin}): {n0}");
+            // Console.WriteLine($"n2 coordinates: ({xin}, {yin}): {n0}");
         }
     }
 }
