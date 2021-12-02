@@ -103,7 +103,7 @@ namespace Lalolagi.Casting
             {
                 SetImage(Constants._img_px_7);
             } */
-
+            // SetImage(Constants.IMAGE_MTN_TRANSITION);
             // Console.WriteLine(noise.Perlin_Noise(_x, _y, _x));
         }
     }
