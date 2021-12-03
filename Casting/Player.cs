@@ -9,7 +9,7 @@ namespace Lalolagi.Casting
         {
             SetHeight(_playerHeigth);
             SetWidth(_playerWidth);
-            SetImage(Constants.IMAGE_MTNTILE_1);
+            SetImage(Constants.IMAGE_PLAYER);
             SetPosition(new Point(Constants.MAX_X / 2, Constants.MAX_Y / 2));
         }
     }

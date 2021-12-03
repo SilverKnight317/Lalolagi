@@ -22,6 +22,7 @@ namespace Lalolagi
         public const string IMAGE_MTNTILE_1 = "./Assets/MtnTile_1.png";
         public const string IMAGE_MTN_TRANSITION = "./Assets/Mtn1ToMtn2_1.png";
         public const string IMAGE_MtnTile_2 = "./Assets/MtnTile_2.png";
+        public const string IMAGE_PLAYER = "./Assets/player.png";
         
         
         
@@ -67,6 +68,9 @@ namespace Lalolagi
 
         public const int BALL_WIDTH = 24;
         public const int BALL_HEIGHT = 24;
+
     }
+
+
 
 }
