@@ -58,14 +58,16 @@ namespace Lalolagi
             //     }
             // }
 
+            int _beforeTile = 0;
             for(int x = 0; x <= Constants.MAX_X; x += Constants.TILE_WIDTH)
             {
                 for(int y = 0; y <= Constants.MAX_Y; y += Constants.TILE_HEIGHT)
                 {
 
-                    Tile t = new Tile(x / 32, y / 32, noise);
+                    Tile t = new Tile(x / 32, y / 32, _beforeTile, noise);
                     t.SetPosition(new Point(x, y));
                     cast["tiles"].Add(t);
+                    _beforeTile = t.GetTileNum();
                 }
             }
 

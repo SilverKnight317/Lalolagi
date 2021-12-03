@@ -7,7 +7,7 @@ namespace Lalolagi
     /// </summary>
     public static class Constants
     {
-        public const int MAX_X = 1200;
+        public const int MAX_X = 1700;
         public const int MAX_Y = 1000;
         public const int FRAME_RATE = 30;
 
