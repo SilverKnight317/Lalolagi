@@ -20,11 +20,20 @@ namespace Lalolagi.Scripting
         public override void Execute(Dictionary<string, List<Actor>> cast)
         {
             Point direction = _inputService.GetDirection();
-            
-            Actor player = cast["player"][0];
+            int t_c = 0;
+            foreach(Actor actor in cast["tiles"])
+            {
+                
+                Actor tile = cast["tiles"][t_c];
+                Point velocity = direction.Scale(2);
+                tile.SetVelocity(velocity);
+                t_c += 1;
+            }
+            // Actor player = cast["player"][0];
 
-            Point velocity = direction.Scale(5);
-            player.SetVelocity(velocity);
+            // Point velocity = direction.Scale(5);
+            // player.SetVelocity(velocity);
+            // tiles.SetVelocity(velocity);
         }
         
     }
