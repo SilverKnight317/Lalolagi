@@ -283,8 +283,6 @@ namespace Lalolagi
             // int output_value = Convert.ToInt32(n0 + n1 + n2);
             // return Convert.ToInt32(n0 + n1 + n2);
             Console.WriteLine($"({xin}, {yin}): {output_fix}");
-            // Console.WriteLine($"n1 coordinates: ({xin}, {yin}): {n0}");
-            // Console.WriteLine($"n2 coordinates: ({xin}, {yin}): {n0}");
         }
     }
 }

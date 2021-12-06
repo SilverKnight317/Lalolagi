@@ -23,8 +23,10 @@ namespace Lalolagi
         public const string IMAGE_MTN_TRANSITION = "./Assets/Mtn1ToMtn2_1.png";
         public const string IMAGE_MtnTile_2 = "./Assets/MtnTile_2.png";
         public const string IMAGE_PLAYER = "./Assets/player.png";
-        
-        
+        public const string IMAGE_O_0 = "./Assets/Ocean_D_0.png";
+        public const string IMAGE_O_1 = "./Assets/Ocean_D_1.png";
+        public const string IMAGE_O_2 = "./Assets/Ocean_D_2.png";
+        public const string IMAGE_O_3 = "./Assets/Ocean_D_3.png";
         
         public const string _img_px_0 = "./Assets/4pxlevel0_deepOcean.png";
         public const string _img_px_1 = "./Assets/4pxlevel1_midOcean.png";
