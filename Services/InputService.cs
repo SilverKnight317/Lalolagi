@@ -17,20 +17,20 @@ namespace Lalolagi.Services
 
         public bool IsLeftPressed()
         {
-            return Raylib.IsKeyDown(Raylib_cs.KeyboardKey.KEY_A);
+            return Raylib.IsKeyDown(Raylib_cs.KeyboardKey.KEY_D);
         }
 
         public bool IsRightPressed()
         {
-            return Raylib.IsKeyDown(Raylib_cs.KeyboardKey.KEY_D);
+            return Raylib.IsKeyDown(Raylib_cs.KeyboardKey.KEY_A);
         }
         public bool IsUpPressed()
         {
-            return Raylib.IsKeyDown(Raylib_cs.KeyboardKey.KEY_W);
+            return Raylib.IsKeyDown(Raylib_cs.KeyboardKey.KEY_S);
         }
         public bool IsDownPressed()
         {
-            return Raylib.IsKeyDown(Raylib_cs.KeyboardKey.KEY_S);
+            return Raylib.IsKeyDown(Raylib_cs.KeyboardKey.KEY_W);
         }
 
         /// <summary>

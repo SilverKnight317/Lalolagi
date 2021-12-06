@@ -22,22 +22,11 @@ namespace Lalolagi
         public const string IMAGE_MTNTILE_1 = "./Assets/MtnTile_1.png";
         public const string IMAGE_MTN_TRANSITION = "./Assets/Mtn1ToMtn2_1.png";
         public const string IMAGE_MtnTile_2 = "./Assets/MtnTile_2.png";
-        public const string IMAGE_PLAYER = "./Assets/player.png";
+        public const string IMAGE_PLAYER = "./Assets/bird.png";
         public const string IMAGE_O_0 = "./Assets/Ocean_D_0.png";
         public const string IMAGE_O_1 = "./Assets/Ocean_D_1.png";
         public const string IMAGE_O_2 = "./Assets/Ocean_D_2.png";
         public const string IMAGE_O_3 = "./Assets/Ocean_D_3.png";
-        
-        public const string _img_px_0 = "./Assets/4pxlevel0_deepOcean.png";
-        public const string _img_px_1 = "./Assets/4pxlevel1_midOcean.png";
-        public const string _img_px_2 = "./Assets/4pxlevel2_LowSand.png";
-        public const string _img_px_3 = "./Assets/4pxlevel3_HighSand.png";
-        public const string _img_px_4 = "./Assets/4pxlevel4_lowLand.png";
-        public const string _img_px_5 = "./Assets/4pxlevel5_highLand.png";
-        public const string _img_px_6 = "./Assets/4pxlevel6_lowMtn.png";
-        public const string _img_px_7 = "./Assets/4pxlevel7_highMtn.png";
-        public const string _img_px_8 = "./Assets/4pxlevel8_snowPeak.png";
-
         
         public const int TILE_HEIGHT = 32;
         public const int TILE_WIDTH = 32;
