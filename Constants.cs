@@ -7,10 +7,11 @@ namespace Lalolagi
     /// </summary>
     public static class Constants
     {
-        public const int MAX_X = 1700;
-        public const int MAX_Y = 1000;
+        public const int MAX_X = 1024;
+        public const int MAX_Y = 1024;
         public const int FRAME_RATE = 30;
-
+        public const int ANCHOR_POINT_X = MAX_X / 32;
+        public const int ANCHOR_POINT_Y = MAX_Y / 32;
         public const int DEFAULT_SQUARE_SIZE = 20;
         public const int DEFAULT_FONT_SIZE = 20;
         public const int DEFAULT_TEXT_OFFSET = 4;
