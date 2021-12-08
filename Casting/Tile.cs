@@ -38,42 +38,42 @@ namespace Lalolagi.Casting
             if (_current_tile_number == -4)
             {
                 SetImage(Constants.IMAGE_O_0);
-                Console.WriteLine(Constants.IMAGE_O_0);
+                // Console.WriteLine(Constants.IMAGE_O_0);
             }
             if (_current_tile_number == -3)
             {
                 SetImage(Constants.IMAGE_O_1);
-                Console.WriteLine(Constants.IMAGE_O_1);
+                // Console.WriteLine(Constants.IMAGE_O_1);
             }
             if (_current_tile_number == -2)
             {
                 SetImage(Constants.IMAGE_O_2);
-                Console.WriteLine(Constants.IMAGE_O_2);
+                // Console.WriteLine(Constants.IMAGE_O_2);
             }
             if (_current_tile_number == -1)
             {
                 SetImage(Constants.IMAGE_O_3);
-                Console.WriteLine(Constants.IMAGE_O_3);
+                // Console.WriteLine(Constants.IMAGE_O_3);
             }
             if (_current_tile_number == 0)
             {
                 SetImage(Constants.IMAGE_SANDTILE_1);
-                Console.WriteLine(Constants.IMAGE_SANDTILE_1);
+                // Console.WriteLine(Constants.IMAGE_SANDTILE_1);
             }
             if (_current_tile_number == 1)
             {
                 SetImage(Constants.IMAGE_SANDTILE_2);
-                Console.WriteLine(Constants.IMAGE_SANDTILE_2);
+                // Console.WriteLine(Constants.IMAGE_SANDTILE_2);
             }
             if (_current_tile_number == 2)
             {
                 SetImage(Constants.IMAGE_LANDTILE_1);
-                Console.WriteLine(Constants.IMAGE_LANDTILE_1);
+                // Console.WriteLine(Constants.IMAGE_LANDTILE_1);
             }
             if (_current_tile_number == 3)
             {
                 SetImage(Constants.IMAGE_MTNTILE_1);
-                Console.WriteLine(Constants.IMAGE_MTNTILE_1);
+                // Console.WriteLine(Constants.IMAGE_MTNTILE_1);
             }        
         }
         public void ManualTileSet(int current_tile_number)

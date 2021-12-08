@@ -93,7 +93,7 @@ namespace Lalolagi
             double y_2 = Linear_Interpolation(x_1, x_2, fy);
 
             int output = Convert.ToInt32(((Linear_Interpolation(y_1, y_2, fz) + 1) / 2) % 2);
-            Console.WriteLine(output);
+            // Console.WriteLine(output);
             return output;
         }
         private double Linear_Interpolation(double a, double b, double c)
