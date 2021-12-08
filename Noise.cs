@@ -61,14 +61,6 @@ namespace Lalolagi
             y = py & 255;
             z = pz & 255;
 
-            // x = Convert.ToInt32(px) % 255;
-            // y = Convert.ToInt32(py) % 255;
-            // z = Convert.ToInt32(pz) % 255;
-
-            // double nx = x - Math.Floor(x);
-            // double ny = y - Math.Floor(y);
-            // double nz = z - Math.Floor(z);
-
             double fx = Fade_Function(x);
             double fy = Fade_Function(y);
             double fz = Fade_Function(z);

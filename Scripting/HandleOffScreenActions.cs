@@ -22,15 +22,6 @@ namespace Lalolagi.Scripting
                 int x = actor.GetX();
                 int y = actor.GetY();
 
-                // int dx = actor.GetVelocity().GetX();
-                // int dy = actor.GetVelocity().GetY();
-
-                // int newX = (x + dx) % Constants.MAX_X;
-                // int newY = (y + dy) % Constants.MAX_Y;
-                // if(x > Constants.MAX_X)
-                // {
-
-                // }
                 int newX = x % (Constants.MAX_X);
                 if(newX == 0)
                 {
@@ -68,36 +59,6 @@ namespace Lalolagi.Scripting
 
                 actor.SetPosition(new Point(newX, newY));
             }
-
-            // List<Actor> tiles = cast["tiles"]; /* gets all tile actors from cast */
-            // List<Actor> removeTile = new List<Actor>();
-            // foreach (Actor actor in tiles)
-            // {
-            //     Actor tile = (Actor)actor;
-            //     if(tile.GetX() >= Constants.MAX_X || tile.GetY() >= Constants.MAX_Y || tile.GetX() <= 0 || tile.GetY() <= 0)
-            //     {
-            //         removeTile.Add(tile);
-            //         // cast["tiles"].Remove(tile);
-            //     }
-            // }
-            // foreach(Actor actor in removeTile)
-            // {
-            //     cast["tiles"].Remove(actor);
-            // }
-
-            // List<Actor> tiles = cast["tiles"];
-            // foreach(Actor actor in tiles)
-            // {
-            //     if(actor.GetX() < 0)
-            //     {
-            //         actor.SetPosition(new Point(Constants.MAX_X, actor.GetY()));
-            //     }
-            //     if(actor.GetY() < 0)
-            //     {
-            //         actor.SetPosition(new Point(actor.GetX(), Constants.MAX_Y));
-            //     }
-            // }
-            // throw new System.NotImplementedException();
         }
         private void MoveIt(Actor actor)
         {
@@ -107,20 +68,8 @@ namespace Lalolagi.Scripting
             int dx = actor.GetVelocity().GetX();
             int dy = actor.GetVelocity().GetY();
 
-            // int newX = (x + dx) % Constants.MAX_X;
-            // int newY = (y + dy) % Constants.MAX_Y;
             int newX = x + dx;
             int newY = y + dy;
-
-            // if (newX < 0)
-            // {
-            //     newX = Constants.MAX_X;
-            // }
-
-            // if (newY < 0)
-            // {
-            //     newY = Constants.MAX_Y;
-            // }
 
             actor.SetPosition(new Point(newX, newY));
         }
