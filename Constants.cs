@@ -28,6 +28,7 @@ namespace Lalolagi
         public const string IMAGE_O_1 = "./Assets/Ocean_D_1.png";
         public const string IMAGE_O_2 = "./Assets/Ocean_D_2.png";
         public const string IMAGE_O_3 = "./Assets/Ocean_D_3.png";
+        public const string IMAGE_ANCHOR = "./Assets/Anchor_point.png";
         
         public const int TILE_HEIGHT = 32;
         public const int TILE_WIDTH = 32;
