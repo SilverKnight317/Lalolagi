@@ -3,16 +3,16 @@ namespace Lalolagi.Casting
 {
     public class Tile : Actor
     {
-        Noise noise = new Noise();
+        Noise noise;
         private int _tileHeight = Constants.TILE_HEIGHT;
         private int _tileWidth = Constants.TILE_WIDTH;
         private int _tile_rating;
         private int _previous_tile_number;
         private int _current_tile_number;
   
-        public Tile()
+        public Tile(Noise _noise)
         {
-        
+            noise = _noise;
         }
         public void SetTile(int _x, int _y, int _prevTile)
         {
@@ -23,9 +23,8 @@ namespace Lalolagi.Casting
             _previous_tile_number = noise.Perlin_Noise(_x - 1, _y, _x - 1);
             _tile_rating = noise.Perlin_Noise(_x, _y, _x);
 
-            // _current_tile_number = _prevTile + (_tile_rating + _previous_tile_number);
             _current_tile_number = _previous_tile_number + _tile_rating;
-
+            // _current_tile_number = _tile_rating + _previous_tile_number;
 
             if (_current_tile_number < -4)
             {

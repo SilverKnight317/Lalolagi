@@ -25,7 +25,7 @@ namespace Lalolagi
             cast["tiles"] = new List<Actor>();
             for(int a = 0; a < 1024; a++)
             {
-                Tile tool = new Tile();
+                Tile tool = new Tile(noise);
                 cast["tiles"].Add(tool);
             }
 
@@ -39,7 +39,7 @@ namespace Lalolagi
             {
                 for(int column = 0; column <= Constants.MAX_Y; column += Constants.TILE_HEIGHT)
                 {
-                    Tile tile = new Tile();
+                    Tile tile = new Tile(noise);
                     tile.SetTile((row + cast["anchor"][0].GetX()) / 32, (column + cast["anchor"][0].GetY()) / 32, _beforeTile);
                     // tile.ManualTileSet(2);
                     tile.SetPosition(new Point(row, column));
@@ -61,7 +61,7 @@ namespace Lalolagi
             PhysicsService physicsService = new PhysicsService();
             AudioService audioService = new AudioService();
             MoveActorsAction moveActors = new MoveActorsAction();
-            HandleOffScreenActions handleOffScreenActions = new HandleOffScreenActions(audioService);
+            HandleOffScreenActions handleOffScreenActions = new HandleOffScreenActions(audioService, noise);
             ControlActorsAction controlActorsAction = new ControlActorsAction(inputService);
             HandleCollisionsAction handleCollisionsAction = new HandleCollisionsAction(physicsService, audioService);
 

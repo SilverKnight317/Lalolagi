@@ -7,9 +7,11 @@ namespace Lalolagi.Scripting
     public class HandleOffScreenActions : Action
     {
         AudioService _audioService;
-        public HandleOffScreenActions(AudioService audioService)
+        Noise noise;
+        public HandleOffScreenActions(AudioService audioService, Noise _noise)
         {
             _audioService = audioService;
+            noise = _noise;
         }
         public override void Execute(Dictionary<string, List<Actor>> cast)
         {
@@ -18,7 +20,7 @@ namespace Lalolagi.Scripting
             int _beforeTile = 0;
             foreach(Actor actor in actors)
             {
-                Tile tile = new Tile();
+                Tile tile = new Tile(noise);
                 int x = actor.GetX();
                 int y = actor.GetY();
 
