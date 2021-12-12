@@ -13,13 +13,6 @@ namespace Lalolagi
             // Create the cast
             Dictionary<string, List<Actor>> cast = new Dictionary<string, List<Actor>>();
 
-            // The ScoreBoard
-            // ScoreBoard scoreBoard = new ScoreBoard();
-            // scoreBoard.SetPosition(new Point( 5 , Constants.MAX_Y - 40));
-            // cast["scoreBoard"] = new List<Actor>();
-            // cast["scoreBoard"].Add(scoreBoard);
-
-
             // Creating map
             Noise noise = new Noise();
             cast["tiles"] = new List<Actor>();
@@ -35,12 +28,15 @@ namespace Lalolagi
             cast["anchor"] = new List<Actor>();
             cast["anchor"].Add(anchor_tile);
             int _beforeTile = 0;
+
             for(int row = 0; row <= Constants.MAX_X; row += Constants.TILE_WIDTH)
             {
                 for(int column = 0; column <= Constants.MAX_Y; column += Constants.TILE_HEIGHT)
                 {
+                    Tile chunkTile = new Tile(noise);
+                    chunkTile.ChunkTile((row + cast["anchor"][0].GetX()) / 80, (column + cast["anchor"][0].GetY()) / 80);
                     Tile tile = new Tile(noise);
-                    tile.SetTile((row + cast["anchor"][0].GetX()) / 32, (column + cast["anchor"][0].GetY()) / 32, _beforeTile);
+                    tile.SetTile((row + cast["anchor"][0].GetX()) / 16, (column + cast["anchor"][0].GetY()) / 16, chunkTile.GetTileNum());
                     // tile.ManualTileSet(2);
                     tile.SetPosition(new Point(row, column));
                     cast["tiles"].Add(tile);
@@ -71,7 +67,6 @@ namespace Lalolagi
 
             DrawActorsAction drawActorsAction = new DrawActorsAction(outputService);
             script["output"].Add(drawActorsAction);
-            // UpdateScore updateScore = new UpdateScore(scoreBoard);
 
             // TODO: Add additional actions here to handle the input, move the actors, handle collisions, etc.
             script["update"].Add(moveActors);
@@ -85,12 +80,9 @@ namespace Lalolagi
             // Start up the game
             outputService.OpenWindow(Constants.MAX_X, Constants.MAX_Y, "Lalolagi", Constants.FRAME_RATE);
             audioService.StartAudio();
-            // audioService.PlaySound(Constants.SOUND_START);
 
             Director theDirector = new Director(cast, script);
             theDirector.Direct();
-
-            // audioService.StopAudio();
             
         }
     }

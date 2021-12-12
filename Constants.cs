@@ -9,7 +9,7 @@ namespace Lalolagi
     {
         public const int MAX_X = 1024;
         public const int MAX_Y = 1024;
-        public const int FRAME_RATE = 30;
+        public const int FRAME_RATE = 60;
         public const int ANCHOR_POINT_X = MAX_X / 32;
         public const int ANCHOR_POINT_Y = MAX_Y / 32;
         public const int DEFAULT_SQUARE_SIZE = 20;
@@ -29,39 +29,24 @@ namespace Lalolagi
         public const string IMAGE_O_2 = "./Assets/Ocean_D_2.png";
         public const string IMAGE_O_3 = "./Assets/Ocean_D_3.png";
         public const string IMAGE_ANCHOR = "./Assets/Anchor_point.png";
-        
-        public const int TILE_HEIGHT = 32;
-        public const int TILE_WIDTH = 32;
-        public const string IMAGE_BRICK = "./Assets/brick-3.png";
-        public const string IMAGE_PADDLE = "./Assets/bat.png";
-        public const string IMAGE_BALL = "./Assets/ball.png";
+        public const string IMG_LVL_0 = "./Assets/alti_0.png";
+        public const string IMG_LVL_1 = "./Assets/alti_1.png";
+        public const string IMG_LVL_2 = "./Assets/alti_2.png";
+        public const string IMG_LVL_3 = "./Assets/alti_3.png";
+        public const string IMG_LVL_4 = "./Assets/alti_4.png";
+        public const string IMG_LVL_5 = "./Assets/alti_5.png";
+        public const string IMG_LVL_6 = "./Assets/alti_6.png";
+        public const string IMG_LVL_7 = "./Assets/alti_7.png";
+        public const string IMG_LVL_8 = "./Assets/alti_8.png";
+        public const string IMG_LVL_9 = "./Assets/alti_9.png";
+        public const string IMG_LVL_10 = "./Assets/alti_10.png";
+        public const string IMG_LVL_11 = "./Assets/alti_11.png";
+        public const string IMG_LVL_12 = "./Assets/alti_12.png";
+        public const string IMG_LVL_13 = "./Assets/alti_13.png";
+        public const string IMG_LVL_14 = "./Assets/alti_14.png";
 
-        public const string SOUND_START = "./Assets/start.wav";
-        public const string SOUND_BOUNCE = "./Assets/boing.wav";
-        public const string SOUND_OVER = "./Assets/over.wav";
-
-        public const int BALL_X = MAX_X / 2;
-        public const int BALL_Y = MAX_Y - 125;
-
-        public const int BALL_DX = 8;
-        public const int BALL_DY = BALL_DX * -1;
-
-        public const int PADDLE_X = MAX_X / 2;
-        public const int PADDLE_Y = MAX_Y - 25;
-
-        public const int BRICK_WIDTH = 48;
-        public const int BRICK_HEIGHT = 24;
-
-        public const int BRICK_SPACE = 5;
-
-        public const int PADDLE_SPEED = 15;
-
-        public const int PADDLE_WIDTH = 96;
-        public const int PADDLE_HEIGHT = 24;
-
-        public const int BALL_WIDTH = 24;
-        public const int BALL_HEIGHT = 24;
-
+        public const int TILE_HEIGHT = 16;
+        public const int TILE_WIDTH = 16;
     }
 
 

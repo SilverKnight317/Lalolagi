@@ -86,26 +86,23 @@ namespace Lalolagi
 
             int output = Convert.ToInt32(((Linear_Interpolation(y_1, y_2, fz) + 1) / 2) % 3);
             // Console.WriteLine(output);
-            // return output;
-            if(output < 2 && output > -2)
-            {
-                return 0;
-            }
-            else
-            {
-                // if(output < 0)
-                // {
-                //     return -1;
-                // }
-                if(output > 0)
-                {
-                    return 1;
-                }
-                else
-                {
-                    return -1;
-                }
-            }
+            
+            return output;
+            // if(output < 2 && output > -2)
+            // {
+            //     return 0;
+            // }
+            // else
+            // {
+            //     if(output > 0)
+            //     {
+            //         return 1;
+            //     }
+            //     else
+            //     {
+            //         return -1;
+            //     }
+            // }
         }
         private double Linear_Interpolation(double a, double b, double c)
         {
