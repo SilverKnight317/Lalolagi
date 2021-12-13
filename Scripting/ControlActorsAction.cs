@@ -25,12 +25,12 @@ namespace Lalolagi.Scripting
             {
                 
                 Actor tile = cast["tiles"][t_c];
-                Point velocity = direction.Scale(1);
+                Point velocity = direction.Scale(2);
                 tile.SetVelocity(velocity);
                 t_c += 1;
             }
             Actor anchor = cast["anchor"][0];
-            Point vector = direction.Scale(1);
+            Point vector = direction.Scale(2);
             anchor.SetVelocity(vector);
         }
         

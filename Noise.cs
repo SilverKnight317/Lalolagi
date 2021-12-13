@@ -57,10 +57,12 @@ namespace Lalolagi
         public int Perlin_Noise(int px, int py, int pz)
         {
             // This Perlin Noise would be based on a 2D scale
+
             x = px & 255;
             y = py & 255;
             z = pz & 255;
 
+            // The fade function is used to... well fade the numbers when there's a 
             double fx = Fade_Function(x);
             double fy = Fade_Function(y);
             double fz = Fade_Function(z);
@@ -85,24 +87,8 @@ namespace Lalolagi
             double y_2 = Linear_Interpolation(x_1, x_2, fy);
 
             int output = Convert.ToInt32(((Linear_Interpolation(y_1, y_2, fz) + 1) / 2) % 3);
-            // Console.WriteLine(output);
             
             return output;
-            // if(output < 2 && output > -2)
-            // {
-            //     return 0;
-            // }
-            // else
-            // {
-            //     if(output > 0)
-            //     {
-            //         return 1;
-            //     }
-            //     else
-            //     {
-            //         return -1;
-            //     }
-            // }
         }
         private double Linear_Interpolation(double a, double b, double c)
         {
